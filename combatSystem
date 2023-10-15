@@ -1,0 +1,50 @@
+#include <iostream> // Include the input-output stream library for basic input/output operations.
+using namespace std; // Import the standard namespace to avoid writing "std::" before standard library elements.
+
+int main() {
+    string player = "Player 1";
+    string enemy = "Boss 1";
+    int plyLife = 100;
+    int enemyLife = 100;
+
+    while (enemyLife > 0 && plyLife > 0) {
+        cout << "\nUse the following numbers to fight with Boss 1 (press 0 to quit)\n";
+        cout << "Punch - 10\n";
+        cout << "Axe - 20\n";
+        cout << "Arrow - 30\n";
+        cout << "Knight sword - 40\n";
+        cout << "Magic - 50\n";
+
+        int val;
+        cout << "\nEnter a number: ";
+        cin >> val;
+
+        // Check the value of "val" input
+        if (val == 10 || val == 20 || val == 30 || val == 40 || val == 50) {
+            enemyLife -= val;
+
+            if (val == 10)
+                plyLife -= 70;             // plyLife is 50
+            else if (val == 20)
+                plyLife -= 60;
+            else if (val == 30)
+                plyLife -= 50;
+            else if (val == 40)
+                plyLife -= 40;
+            else if (val == 50)
+                plyLife -= 30;
+
+            cout << "Player's Life: " << plyLife << " Enemy's Life: " << enemyLife << endl;
+        } else {
+            cout << "Invalid input. Try again." << endl;
+        }
+    }
+
+    if (enemyLife <= 0) {
+        cout << "You DEFEATED Boss 1!!!!!" << endl;
+    } else if (plyLife <= 0) {
+        cout << "You FAILED!!!" << endl;
+    }
+
+    return 0;  // Indicate successful program execution and return 0 to the operating system.
+}
